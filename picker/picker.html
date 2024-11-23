@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <style>
+        :root {
+            --dark-body-bg: #232429c0;
+            --dark-border: #484D5A;
+            --dark-date-foreground: #FFFFFF;
+          }
+          html {
+            box-sizing: border-box;
+          }
+          
+          *, *:before, *:after {
+            box-sizing: inherit;
+          }
+          
+          body {
+            height: 100vh;
+            background: var(--dark-body-bg);
+            font-family: "Open Sans", sans-serif;;
+          }
+          #date_picker {
+            width: 300px;
+            margin: 0 auto;
+            transform: scale(1.2);
+            position: relative;
+            top: 15%;
+          }
+          
+          #date_picker_input {
+            margin-bottom: 8px;
+          }
+          
+          label {
+            display: block;
+            color: #8A8F9F;
+            font-size: 1.02rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+          }
+          
+          #date {
+            font-size: 16px;
+            padding: 10px;
+          }
+
+          #date_picker_calendar {
+            min-height: fit-content;
+            overflow: hidden;
+            padding: 10px;
+        }
+        
+        #date, 
+        #date_picker_calendar {
+            border-radius: 7px;
+            background: white;
+            border: var(--dark-border);
+            width: 100%;
+        }
+
+        #calendar_header {
+            width: 100%;
+            min-height: 30px; 
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: 220px 20px 20px;
+            align-items: center;
+            gap: 4px;
+            color: #232429b6;
+          }
+          
+          .cal-btn {
+            width: 20px;
+            height: 20px;
+            background-color: #9C346B;
+            border: none;
+            padding: 0;
+            margin: 3px;
+            border-radius: 3px;
+            color: white;
+          }
+          
+          .cal-btn img {
+            width: 80%;
+            height: 100%;
+          }
+          
+          .cal-btn.back img {
+            transform: rotate(90deg);
+          }
+          
+          .cal-btn.front img {
+            transform: rotate(-90deg);
+          }
+
+
+#cal_days {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+#calendar_main {
+  grid-template-rows: repeat(5, min(30px));
+}
+
+.cell_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  position: relative;
+  color: #23242991;
+}
+
+.current:not(.active):hover {
+  background: #cc86ac;
+  color: #ffffff;
+  border: 2px solid #9C346B;
+}
+
+.cal-btn:hover,
+.current:hover {
+  cursor: pointer;
+}
+
+
+.inactive_indicator:after {
+/*   text-decoration: underline; */
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+}
+
+
+#cal_days,
+#calendar_main {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 5px;
+  column-gap: 5px;
+  color: var(--dark-inactive-fg);
+}
+
+.active {
+  background: #9C346B;
+  color: var(--dark-date-foreground);
+}
+
+.inactive_indicator:after {
+/*   text-decoration: underline; */
+  content: '';
+  width: 3px;
+  height: 3px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+hr {
+  border-color: #0000002a;
+}
+
+    </style>
+    <body>
+        <div id="date_picker">
+            <div id="date_picker_input">
+              <label>Datepicker</label>
+              <input type="text" id="date" />
+            </div>
+            <div id="date_picker_calendar"> 
+              <div id="calendar_header">
+                <span></span>
+                <button class="cal-btn back"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nO3QIQ6AMBBE0V6ChvvfAzQEh+E4HwOVZNtOg5mfjFrxkk3JOedca8CKviUC7wPgLQJPwClEL2COvluFx1EhXo8K8Ha0A+9HG3AdWoHr0QA+Dv3Ax6NvQAaOZ7kcnHPph24z1p7nrmJPCQAAAABJRU5ErkJggg==" alt="sort-down"></button>
+                <button class="cal-btn front"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nO3QIQ6AMBBE0V6ChvvfAzQEh+E4HwOVZNtOg5mfjFrxkk3JOedca8CKviUC7wPgLQJPwClEL2COvluFx1EhXo8K8Ha0A+9HG3AdWoHr0QA+Dv3Ax6NvQAaOZ7kcnHPph24z1p7nrmJPCQAAAABJRU5ErkJggg==" alt="sort-down"></button>
+              </div>
+              <hr>
+              <div id="cal_wrapper">
+                <div id="cal_days"></div>
+                <div id="calendar_main"></div>
+              </div>
+            </div>
+          </div>
+
+          <script src="picker.js"></script>
+    </body>
+</html>

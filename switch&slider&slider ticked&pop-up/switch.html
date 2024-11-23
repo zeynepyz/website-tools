@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Switch</title>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+    </head>
+    <style>* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(48, 46, 46);
+    }
+    
+    /* Checkbox Slider */
+    .toggler {
+        display: block;
+        height: 48px;
+        width: 100px;
+        background-color: #9c346b2f;
+        border: 2px solid;
+        border-radius: 25px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.5s;
+    }
+    
+    .cross, .tick {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        background-color: transparent;
+        /* border: 1px solid red; */
+        border-radius: 50%;
+        font-size: 1.6rem;
+        position: absolute;
+    }
+    
+    .togglerSlider {
+        display: block;
+        height: 44px;
+        width: 45px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        position: absolute;
+        left: 1px;
+        z-index: 5;
+        transition: left 0.5s;
+    }
+    
+    /* Checked Actions */
+    #toggleBtn:checked + .toggler .togglerSlider {
+        left: 51px;
+    }
+    #toggleBtn:checked + .toggler {
+        background-color: #9C346B;
+        border: 2px solid #9C346B;
+    }
+    #toggleBtn:checked + .toggler .tick {
+        opacity: 1;
+    }
+    #toggleBtn:checked + .toggler .cross {
+        opacity: 0;
+    }
+    #toggleBtn {
+        appearance: none;
+    }</style>
+    <body>
+    <label for="toggleBtn">
+        <input type="checkbox" name="toggleBtn" id="toggleBtn">
+        <div class="toggler">
+            <div class="cross"><i class="fa-solid fa-xmark"></i></div>
+            <div class="tick"><i class="fa-solid fa-check"></i></div>
+            <div class="togglerSlider"></div>
+        </div>
+    </label>
+    </body>
+</html>

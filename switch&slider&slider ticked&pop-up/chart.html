@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chart</title>
+</head>
+<style>
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.327);
+}
+
+.container {
+  display: flex;
+  width: 350px;
+  padding: 50px 0;
+  border-radius: 10px;
+  background: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circular-progress {
+  margin-top: 35px;
+  position: relative;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  background: conic-gradient(#7d0068 270.0deg, #ededed 1deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+  .cta {
+    margin-top: 35px;
+    padding: 10px 20px;
+    background-color: #7d0068; /* Mor ton */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+h5 {
+  font-weight: lighter;
+  margin-top: 10px;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.6);
+}
+span {
+  z-index: 2;
+  font-weight: 600;
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.71);
+}
+
+.circle-progress-circle {
+	stroke-width: 2px;
+}
+
+  </style>
+<body>
+    <div class="container">
+      <h3>Headline</h3>
+      <h5>Subheadline</h5>
+        <div class="circular-progress">
+          <span class="progress">%75</span>
+        </div>
+        <button class="cta">CTA</button>
+      </div> 
+</body>
+</html>

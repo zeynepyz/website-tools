@@ -1,0 +1,111 @@
+.form-container {
+    display: flex;
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 1100px;
+    font-family: "Open Sans", sans-serif;;
+    align-items: center;
+  }
+  
+  .form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 40px;
+    width: 450px;
+    height: 440px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.137);
+    margin: 0 auto; /* Form kutusunu yatayda ortalar */
+  }
+  
+  .form-header {
+    text-align: center;
+  }
+  
+  .form-logo {
+    width: 130px;
+  }
+  
+  h2 {
+    color: #9C346B; /* Mor ton */
+    font-size: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
+    margin-bottom: 13px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 330px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .submit-button {
+    background-color: #9C346B; /* Mor ton */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%; /* Genişliği form-box içinde tam genişliğe ayarla */
+    max-width: 330px; /* İstenilen genişlik */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #9C346B; /* Koyu mor ton */
+  }
+  
+.password-container {
+  display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#password {
+  text-decoration: none;
+  text-align: center;
+  color: #9C346B;
+  font-size: 10px;
+  margin-top: 10px;
+  margin-bottom: 13px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.192);
+}
+
+#new-sign {
+  margin-top: 15px;
+}
+
+.form { 
+  display: grid;
+  justify-content: center;
+}

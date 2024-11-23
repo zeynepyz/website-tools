@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pop-Up</title>
+    </head>
+
+    <style>
+    body {
+        font-family: "Open Sans", sans-serif;;
+        background-color: rgba(0, 0, 0, 0.416);
+    }
+    .popup-button {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-btn {
+      background-color: #ffffff; /* Mor ton */
+      color: #7d0068;
+      border: 1px solid rgba(0, 0, 0, 0.148);
+      padding: 10px;
+      border-radius: 15px;
+      cursor: pointer;
+      width: 200px;
+      height: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 23px;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.501);
+      font-size: 12px;
+      z-index: 1;
+      border-radius: 15px;
+      width: 185px;  /* padding left 15px */
+      margin-top: 12px;
+      padding-left: 15px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+    
+    .popup-button:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-content p {
+      padding: 10px;
+      margin: 2px;
+      cursor: pointer;
+    }
+
+    hr {
+        border-color: #98b5ae41;
+      }
+    </style>
+
+    <body>
+
+<div class="popup-button">
+    <button class="dropdown-btn">Body <span>▼</span></button>
+    <div class="dropdown-content">
+      <p>Body</p>
+      <hr>
+      <p>Body</p>
+      <hr>
+      <p>Body</p>
+    </div>
+  </div>
+
+    </body>
+
+
+
+
+</html>
+
+  

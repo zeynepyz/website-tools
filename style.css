@@ -1,0 +1,295 @@
+body {
+  margin: 0;
+}
+.container{
+    display: grid;
+    grid-template-rows: 670px auto;
+    overflow: hidden;
+    background-color: #753C77;
+}
+
+.animation{
+    display: flex;
+    justify-content: center; /* Yatayda merkezleme */
+    align-items: center; /* Dikeyde merkezleme */
+    position: relative;
+}
+
+#bcgd {
+    width: auto;
+    height: 670.86px;
+    z-index: 1;
+    position: absolute;
+    object-fit: fill;
+}
+
+#plane{
+    z-index: 2;
+    position: absolute;
+    width: 1100px;
+    height: auto;
+    animation: planemove 3s forwards; /* forwards ile animasyon sonunda durumu koruyacak */
+    top: 270px;
+    position: absolute;
+}
+
+#manu1{
+    z-index: 3;
+    animation:
+      manuAppear 2s 3s forwards, /* 3s gecikme ile başlar */
+      manuGrow 2s 5s forwards, /* 3s uçak hareketi + 2s görünme süresi */
+      manuJump 1s 7s 2 alternate, /* 5s toplam bekleme + 2s büyüme süresi */
+      manuFadeOut 2s 9s forwards; /* 7s toplam bekleme + 2s zıplama süresi */
+    /* animation: manuAppear 2s forwards 5s, manuGrow 2s 2s forwards 7s, manuJump 1s 4s 2 alternate, manuFadeOut 2s 7s forwards; */
+    position: absolute;
+    width: 140px;
+    height: auto;
+    opacity: 0;
+    transform-origin: center bottom; /* Animasyonların referans noktası */
+    left: 480px;
+    top: 365px;
+}
+
+#manu2{
+  z-index: 6;
+  animation:
+    manuAppear 2s 9s forwards, /* 9s gecikme ile başlar */
+    manu2Jump 1s 11s infinite;
+  position: absolute;
+  width: 210px;
+  opacity: 0;
+  transform: scale(1) translate(100px, 50px); /* #manu1'in son durumu ile eşleşmeli */
+  transform-origin: center bottom;
+  left: 542px;
+  top: 230px;
+}
+
+#confetti1 {
+  height: 650px;
+  z-index: 4;
+  animation: confettiBlow 3s 10s, manuAppear 2s 10s forwards;
+  opacity: 0;
+  object-fit: cover;
+}
+
+#confetti2 {
+  height: 650px;
+  z-index: 4;
+  animation: confettiBlow 3s 10s, manuAppear 2s 10s forwards;
+  opacity: 0;
+  object-fit: cover;
+}
+
+#coins {
+  z-index: 5;
+  position: absolute;
+  object-fit: cover;
+  top: -240px;
+  opacity: 0;
+  animation: confettiBlow 3s 11s, manuAppear 2s 11s forwards;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 200px 100px auto;
+  justify-items: center;
+}
+
+.text {
+  color: white;
+  font-size: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 400px;
+  text-align: center; 
+}
+
+button {
+  height: 50px;
+  width: 200px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  outline: none;
+  color: #BD00FF;
+  background-color: #FAFF00;
+  box-shadow: 0 9px #2B3E4F;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+button:hover {background-color: #b2b417}
+
+button:active {
+  background-color: #b2b417;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+iframe {
+  border-radius: 12px;
+  width: 1215px;
+  height: 671px;
+  margin-bottom: 50px;
+}
+
+@keyframes planemove {
+    from {right: -150px;} 
+    to {right: 240px;}
+  }
+
+@keyframes manuAppear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes manuGrow {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(2) translate(100px, 50px); } /* Sağ alta doğru büyüme */
+  }
+  
+  @keyframes manuJump {
+    0%, 100% { transform: scale(2) translate(100px, 50px) translateY(0); } /* Büyüklük ve konum korumak için */
+    50% { transform: scale(2) translate(100px, 50px) translateY(-20px); } /* Yukarı-aşağı zıplama */
+  }
+  
+  @keyframes manuFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes confettiBlow {
+    0% { transform: translateY(-630px); }
+    100% { transform: translateY(0px); }
+  }
+  
+
+
+  @keyframes manu2Jump {
+    0%, 100% { transform: scale(1) translate(100px, 50px) translateY(0); }
+    50% { transform: scale(1) translate(100px, 50px) translateY(-40px); }
+  }
+
+/*
+@keyframes manugrow {
+    from {
+        top: 350px;
+        left: 550px;
+        transform: scale(0.1);
+      }
+    
+      to {
+        top: 350px;
+        left: 350px;
+        width: 400px;
+        transform: scale(0.5);
+      } 
+}
+
+@keyframes manuappear {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes manutakla {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes manuUpDown {
+    1% { transform: translateY(0); }
+    1% { transform: translateY(-50px); }
+}
+
+@keyframes manujump1 {
+    from {
+        top: 150;
+      }
+    
+      to {
+        top: 300px;
+      } 
+}
+
+@keyframes manujump2 {
+    from {
+        top: 300px;
+      }
+    
+      to {
+        top: 150px;
+      } 
+}
+*/
+
+
+@media (max-width: 768px) {
+  .container {
+    display: grid;
+      grid-template-rows: 600px 400px;
+      padding: 10px;
+      grid-gap: 20px;
+  }
+
+  #plane{
+    z-index: 2;
+    position: absolute;
+    width: 900px;
+    height: auto;
+    top: 300px;
+    animation: planemove 3s forwards; /* forwards ile animasyon sonunda durumu koruyacak */
+}
+
+@keyframes planemove {
+  from {right: -450px;} 
+  to {right: -150px;}
+}
+
+#manu1{
+  width: 150px;
+  left: 40px;
+  top: 340px;
+}
+
+#manu2{
+  width: 210px;
+  left: 110px;
+  top: 200px;
+}
+
+ #confetti1, #confetti2, #coins {
+      width: 550px;
+      height: 600px;
+      position: absolute;
+  }
+
+  .main {
+      grid-template-rows: auto auto auto;
+      padding: 10px;
+      margin-top: 10px;
+  }
+
+  .text {
+      font-size: 18px; /* Daha küçük ekranlar için yazı boyutunu küçültme */
+      width: 90%; /* Metin genişliğini ayarlama */
+  }
+
+  button {
+      width: 100px;
+      font-size: 18px; /* Buton yazı boyutunu küçültme */
+  }
+
+  iframe {
+      width: 100%; /* Video genişliğini tam ekran yapma */
+      height: auto; /* Yüksekliği otomatik ayarlama */
+  }
+}

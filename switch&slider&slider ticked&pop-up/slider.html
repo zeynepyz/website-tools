@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="slider.css">
+</head>
+
+<style>
+    .slidecontainer {
+        width: 600px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="range"] {
+        appearance: none;
+        width: 300px;
+        height: 8px;
+        background: linear-gradient(to right, #9C346B 50%, #ffffff 50%);
+        border-radius: 5px;
+        border: 1px rgba(0, 0, 0, 0.199) solid;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 15px; /* Thumb genişliği */
+        height: 15px; /* Thumb yüksekliği */
+        border-radius: 50%; /* Yuvarlak thumb */
+        background: #ffffff; /* Thumb rengi */
+        cursor: pointer;
+        border: 1px rgba(0, 0, 0, 0.288) solid;
+    }
+
+    #markers {
+        height: 10px;
+        border: 1px solid;
+
+    }
+</style>
+
+<body>
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+</div>
+</body>
+
+<script>
+    document.getElementById('myRange').addEventListener('input', function() {
+        var value = (this.value - this.min) / (this.max - this.min) * 100;
+        this.style.background = 'linear-gradient(to right, #d16b8c ' + value + '%, #ffffff ' + value + '%)';
+    });
+</script>
+</html>
+
